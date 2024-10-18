@@ -1,0 +1,16 @@
+
+
+	
+INSERT INTO paciente 
+VALUES ('12345678901', 'João Silva', 'Joana', 'joao.silva@example.com', '1985-03-15', 'M', '11987654321'),
+ ('98765432100', 'Maria Oliveira', 'Marina', 'maria.oliveira@example.com', '1990-07-25', 'F', '11987654322'),
+ ('45612378902', 'Carlos Pereira', 'Carla', 'carlos.pereira@example.com', '1982-01-10', 'M', '11987654323'),
+ ('32165498703', 'Ana Souza', 'Anita', 'ana.souza@example.com', '1995-09-08', 'F', '11987654324'),
+ ('78912345604', 'Lucas Mendes', 'Luciana', 'lucas.mendes@example.com', '1987-12-18', 'M', '11987654325'),
+ ('65498732105', 'Juliana Costa', 'Julio', 'juliana.costa@example.com', '1992-06-22', 'F', '11987654326'),
+ ('14725836906', 'Pedro Lima', 'Pietra', 'pedro.lima@example.com', '1980-11-03', 'M', '11987654327'),
+ ('25836914707', 'Laura Nunes', 'Leo', 'laura.nunes@example.com', '1998-04-15', 'F', '11987654328'),
+ ('36925814708', 'Bruno Dias', 'Bruna', 'bruno.dias@example.com', '1989-08-27', 'M', '11987654329'),
+ ('74185296309', 'Patrícia Azevedo', 'Patrick', 'patricia.azevedo@example.com', '1993-05-19', 'F', '11987654330');
+ select * from paciente
+
