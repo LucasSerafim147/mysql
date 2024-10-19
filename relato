@@ -1,0 +1,96 @@
+
+SELECT sexo, COUNT(*) AS total
+FROM paciente
+GROUP BY sexo;
+
+
+SELECT nome, data_nasc
+FROM paciente
+WHERE data_nasc < '1990-01-01';
+
+-- 3. Procedimentos Realizados por Dentista Específico
+SELECT dentista, procedimento
+FROM Agendamento
+WHERE dentista = 'Dr. João Almeida';
+
+
+SELECT paciente.nome, Agendamento.estado_paciente
+FROM paciente
+JOIN Agendamento ON paciente.cpf = Agendamento.idAgendamento
+WHERE Agendamento.estado_paciente = 'Crítico';
+
+
+SELECT metodopag, SUM(valor) AS total_faturado
+FROM faturamento
+GROUP BY metodopag;
+
+
+SELECT nome, especializacao
+FROM Dentista
+WHERE especializacao = 'Odontopediatria';
+
+
+SELECT estado_paciente, COUNT(*) AS total_agendamentos
+FROM Agendamento
+GROUP BY estado_paciente;
+
+
+SELECT AVG(custo) AS valor_medio_procedimentos
+FROM Procedimentos;
+
+
+SELECT nome, custo, descricao
+FROM Procedimentos
+WHERE data BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW();
+
+
+SELECT custosOperacionais, salarios
+FROM Receitas_Despesas;
+
+
+SELECT nomeLaboratorio, telefone, email
+FROM LaboratorioExterno;
+
+
+SELECT paciente.nome, paciente.telefone, Dentista.nome, Dentista.telefone
+FROM paciente, Dentista;
+
+
+SELECT paciente.nome, HistoricoBucal.ocorrencia, HistoricoBucal.dataOcorrencia
+FROM paciente
+JOIN HistoricoBucal ON paciente.cpf = HistoricoBucal.idHistoricoBucal;
+
+
+SELECT AVG(cobertura) AS media_cobertura
+FROM segurosaude;
+
+
+SELECT nome, custo
+FROM Procedimentos
+ORDER BY custo DESC
+LIMIT 5;
+
+
+SELECT nome, TIMESTAMPDIFF(YEAR, data_nasc, CURDATE()) AS idade
+FROM paciente;
+
+
+SELECT paciente.nome, Agendamento.estado_paciente
+FROM paciente
+JOIN Agendamento ON paciente.cpf = Agendamento.idAgendamento
+WHERE Agendamento.data > NOW();
+
+SELECT nome, custo, descricao
+FROM Procedimentos
+WHERE data = '2024-10-22';
+
+
+SELECT Dentista.nome, Dentista.salario
+FROM Dentista
+UNION
+SELECT EquipeClinica.nome, EquipeClinica.salario
+FROM EquipeClinica;
+
+
+SELECT SUM(custosOperacionais) AS total_custos_operacionais
+FROM Receitas_Despesas;
