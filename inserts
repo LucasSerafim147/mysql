@@ -77,18 +77,83 @@ INSERT INTO LaboratorioExterno (nome,idLaboratorioExterno, responsavel, telefone
 (10, 'Patrícia Martins', '(11) 901-2345', 'Lab J', 'patricia@labj.com');
 
 INSERT INTO Receitas_Despesas (idReceitas_Despesas, custosOperacionais, salarios) VALUES 
-(1, 'Aluguel', '5000',"lucas"),
-(2, 'Materiais', '3000',"joao"),
-(3, 'Serviços Gerais', '4000',"paola"),
-(4, 'Marketing', '2000',"luiza"),
-(5, 'Tecnologia', '6000',"luiz"),
-(6, 'Transporte', '2500',"pedro"),
-(7, 'Manutenção', '3500',"lucio"),
-(8, 'Seguros', '1500',"marcos"),
-(9, 'Consultoria', '4500',"priscila"),
-(10, 'Treinamento', '500', "daniel");
+(1, 'Aluguel', '5000'),
+(2, 'Materiais', '3000'),
+(3, 'Serviços Gerais', '4000'),
+(4, 'Marketing', '2000'),
+(5, 'Tecnologia', '6000'),
+(6, 'Transporte', '2500'),
+(7, 'Manutenção', '3500'),
+(8, 'Seguros', '1500'),
+(9, 'Consultoria', '4500'),
+(10, 'Treinamento', '500');
+
+INSERT INTO Dentista (cro, nome, telefone, email, nomeSocial, especializacao, sexo, salario, dataNasc) VALUES 
+(12345, 'João da Silva', '(11) 98765-41', 'joao@dentista.com', 'João', 'Odontologia Geral', 'M', 8000.00, '1985-04-15'),
+(12346, 'Maria Oliveira', '(21) 996-532', 'maria@dentista.com', 'Maria', 'Ortodontia', 'F', 9500.00, '1990-06-20'),
+(12347, 'Carlos Pereira', '(31) 9234-678', 'carlos@dentista.com', 'Carlos', 'Endodontia', 'M', 8500.00, '1982-03-30'),
+(12348, 'Ana Costa', '(41) 92345789', 'ana@dentista.com', 'Ana', 'Pediatria', 'F', 7000.00, '1995-08-25'),
+(12349, 'Pedro Santos', '(51) 456-7890', 'pedro@dentista.com', 'Pedro', 'Implantodontia', 'M', 10000.00, '1980-12-05'),
+(12350, 'Fernanda Lima', '(61) 567-8901', 'fernanda@dentista.com', 'Fernanda', 'Periodontia', 'F', 7500.00, '1988-11-10'),
+(12351, 'Lucas Almeida', '(71) 978-9012', 'lucas@dentista.com', 'Lucas', 'Odontopediatria', 'M', 6500.00, '1993-01-18'),
+(12352, 'Juliana Rocha', '(81) 9789-23', 'juliana@dentista.com', 'Juliana', 'Cirurgia Oral', 'F', 9000.00, '1987-09-12'),
+(12353, 'Ricardo Gomes', '(91) 970-14', 'ricardo@dentista.com', 'Ricardo', 'Prótese Dentária', 'M', 7800.00, '1991-07-30'),
+(12354, 'Patrícia Martins', '(11) 981-2345', 'patricia@dentista.com', 'Patrícia', 'Estética Dental', 'F', 7200.00, '1994-05-22');
+
+INSERT INTO EquipeClinica (cpf, nome, nomeSocial, genero, dataNasc, salario, especializacao, email) VALUES 
+('123.456.789-00', 'João da Silva', 'João', 'M', '1985-04-15', 5000.00, 'Dentista', 'joao@clinica.com'),
+('987.654.321-00', 'Maria Oliveira', 'Maria', 'F', '1990-06-20', 6000.00, 'Enfermeira', 'maria@clinica.com'),
+('111.222.333-44', 'Carlos Pereira', 'Carlos', 'M', '1982-03-30', 5500.00, 'Técnico de Saúde', 'carlos@clinica.com'),
+('444.555.666-77', 'Ana Costa', 'Ana', 'F', '1995-08-25', 4800.00, 'Recepcionista', 'ana@clinica.com'),
+('222.333.444-88', 'Pedro Santos', 'Pedro', 'M', '1980-12-05', 6200.00, 'Fisioterapeuta', 'pedro@clinica.com'),
+('333.444.555-99', 'Fernanda Lima', 'Fernanda', 'F', '1988-11-10', 4700.00, 'Odontóloga', 'fernanda@clinica.com'),
+('555.666.777-11', 'Lucas Almeida', 'Lucas', 'M', '1993-01-18', 5000.00, 'Psicólogo', 'lucas@clinica.com'),
+('666.777.888-22', 'Juliana Rocha', 'Juliana', 'F', '1987-09-12', 5900.00, 'Nutricionista', 'juliana@clinica.com'),
+('777.888.999-33', 'Ricardo Gomes', 'Ricardo', 'M', '1991-07-30', 5400.00, 'Farmacêutico', 'ricardo@clinica.com'),
+('888.999.000-44', 'Patrícia Martins', 'Patrícia', 'F', '1994-05-22', 6500.00, 'Dermatologista', 'patricia@clinica.com');
+
+INSERT INTO Ponto (idPonto, entrada, saida, inicioIntervalo, finalIntervalo) VALUES 
+(1, '2024-10-01 08:00:00', '2024-10-01 17:00:00', '2024-10-01 12:00:00', '2024-10-01 12:30:00'),
+(2, '2024-10-01 09:00:00', '2024-10-01 18:00:00', '2024-10-01 13:00:00', '2024-10-01 13:30:00'),
+(3, '2024-10-02 08:30:00', '2024-10-02 17:30:00', '2024-10-02 12:30:00', '2024-10-02 13:00:00'),
+(4, '2024-10-02 09:00:00', '2024-10-02 18:00:00', '2024-10-02 13:30:00', '2024-10-02 14:00:00'),
+(5, '2024-10-03 08:00:00', '2024-10-03 17:00:00', '2024-10-03 12:00:00', '2024-10-03 12:45:00'),
+(6, '2024-10-03 08:15:00', '2024-10-03 17:15:00', '2024-10-03 12:15:00', '2024-10-03 12:45:00'),
+(7, '2024-10-04 08:00:00', '2024-10-04 17:00:00', '2024-10-04 12:00:00', '2024-10-04 12:30:00'),
+(8, '2024-10-04 09:00:00', '2024-10-04 18:00:00', '2024-10-04 13:00:00', '2024-10-04 13:30:00'),
+(9, '2024-10-05 08:30:00', '2024-10-05 17:30:00', '2024-10-05 12:30:00', '2024-10-05 13:00:00'),
+(10, '2024-10-05 09:00:00', '2024-10-05 18:00:00', '2024-10-05 13:30:00', '2024-10-05 14:00:00');
+
+INSERT INTO Endereco (idEndereco, estado, cidade, bairro, cep, rua, numero, complemento) VALUES 
+(1, 'São Paulo', 'São Paulo', 123, '01234-567', 'Rua A', '123', 'Apto 45'),
+(2, 'Rio de Janeiro', 'Rio de Janeiro', 456, '98765-432', 'Rua B', '456', 'Casa 12'),
+(3, 'Minas Gerais', 'Belo Horizonte', 789, '54321-678', 'Rua C', '789', ''),
+(4, 'Bahia', 'Salvador', 321, '67890-123', 'Rua D', '321', 'Prédio 4'),
+(5, 'Rio Grande do Sul', 'Porto Alegre', 654, '23456-789', 'Rua E', '654', 'Lote 2'),
+(6, 'São Paulo', 'São Paulo', 111, '01234-890', 'Rua F', '101', 'Sala 3'),
+(7, 'Paraná', 'Curitiba', 222, '56789-123', 'Rua G', '202', ''),
+(8, 'Santa Catarina', 'Florianópolis', 333, '45678-234', 'Rua H', '303', 'Cobertura 1'),
+(9, 'Ceará', 'Fortaleza', 444, '34567-345', 'Rua I', '404', 'Bloco B'),
+(10, 'Pernambuco', 'Recife', 555, '23456-456', 'Rua J', '505', 'Apto 201');
+
+INSERT INTO HistoricoBucal (idHistoricoBucal, ocorrencia, dataOcorrencia) VALUES 
+(1, 'Cárie tratada', '2024-01-15 10:30:00'),
+(2, 'Limpeza dental', '2024-02-10 14:00:00'),
+(3, 'Extração de dente', '2024-03-05 09:00:00'),
+(4, 'Apinhamento dental', '2024-04-20 11:15:00'),
+(5, 'Tratamento de canal', '2024-05-30 15:45:00'),
+(6, 'Restauração', '2024-06-15 10:00:00'),
+(7, 'Avaliação ortodontia', '2024-07-20 14:30:00'),
+(8, 'Tratamento de gengivite', '2024-08-25 09:45:00'),
+(9, 'Clareamento dental', '2024-09-30 11:00:00'),
+(10, 'Consulta de rotina', '2024-10-05 13:15:00');
 
 
 
 
-select * from receitas_despesas
+
+
+
+
+
+select * from historicobucal
