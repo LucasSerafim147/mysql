@@ -8,16 +8,17 @@ SELECT nome, data_nasc
 FROM paciente
 WHERE data_nasc < '1990-01-01';
 
--- 3. Procedimentos Realizados por Dentista Específico
-SELECT dentista, procedimento
-FROM Agendamento
-WHERE dentista = 'Dr. João Almeida';
+
+SELECT A.dentista, P.nome
+FROM Agendamento A
+JOIN Procedimentos P ON A.idAgendamento = P.Agendamento_idAgendamento
+WHERE A.dentista = 'Dr. João Almeida';
 
 
-SELECT paciente.nome, Agendamento.estado_paciente
-FROM paciente
-JOIN Agendamento ON paciente.cpf = Agendamento.idAgendamento
-WHERE Agendamento.estado_paciente = 'Crítico';
+SELECT pac.nome, A.estado_paciente
+FROM paciente pac
+JOIN Agendamento A ON pac.cpf = A.idAgendamento
+WHERE A.estado_paciente = 'Crítico';
 
 
 SELECT metodopag, SUM(valor) AS total_faturado
@@ -39,27 +40,29 @@ SELECT AVG(custo) AS valor_medio_procedimentos
 FROM Procedimentos;
 
 
-SELECT nome, custo, descricao
-FROM Procedimentos
-WHERE data BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW();
+SELECT P.nome, P.custo, P.descricao
+FROM Procedimentos P
+JOIN Agendamento A ON P.Agendamento_idAgendamento = A.idAgendamento
+WHERE A.data BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW();
 
 
-SELECT custosOperacionais, salarios
-FROM Receitas_Despesas;
+SELECT RD.custosOperacionais, RD.salarios
+FROM Receitas_Despesas RD;
 
 
-SELECT nomeLaboratorio, telefone, email
-FROM LaboratorioExterno;
+SELECT LE.nomeLaboratorio, LE.telefone, LE.email
+FROM LaboratorioExterno LE;
 
 
-SELECT paciente.nome, paciente.telefone, Dentista.nome, Dentista.telefone
-FROM paciente, Dentista;
+SELECT pac.nome AS Nome_Paciente, pac.telefone AS Telefone_Paciente, den.nome AS Nome_Dentista, den.telefone AS Telefone_Dentista
+FROM paciente pac
+JOIN Agendamento A ON pac.cpf = A.idAgendamento
+JOIN Dentista den ON A.dentista = den.nome;
 
 
-SELECT paciente.nome, HistoricoBucal.ocorrencia, HistoricoBucal.dataOcorrencia
-FROM paciente
-JOIN HistoricoBucal ON paciente.cpf = HistoricoBucal.idHistoricoBucal;
-
+SELECT pac.nome, HB.ocorrencia, HB.dataOcorrencia
+FROM paciente pac
+JOIN HistoricoBucal HB ON pac.cpf = HB.idHistoricoBucal;
 
 SELECT AVG(cobertura) AS media_cobertura
 FROM segurosaude;
@@ -75,21 +78,23 @@ SELECT nome, TIMESTAMPDIFF(YEAR, data_nasc, CURDATE()) AS idade
 FROM paciente;
 
 
-SELECT paciente.nome, Agendamento.estado_paciente
-FROM paciente
-JOIN Agendamento ON paciente.cpf = Agendamento.idAgendamento
-WHERE Agendamento.data > NOW();
-
-SELECT nome, custo, descricao
-FROM Procedimentos
-WHERE data = '2024-10-22';
+SELECT pac.nome, A.estado_paciente
+FROM paciente pac
+JOIN Agendamento A ON pac.cpf = A.idAgendamento
+WHERE A.data > NOW();
 
 
-SELECT Dentista.nome, Dentista.salario
-FROM Dentista
+SELECT P.nome, P.custo, P.descricao
+FROM Procedimentos P
+JOIN Agendamento A ON P.Agendamento_idAgendamento = A.idAgendamento
+WHERE A.data = '2024-10-22';
+
+
+SELECT D.nome, D.salario
+FROM Dentista D
 UNION
-SELECT EquipeClinica.nome, EquipeClinica.salario
-FROM EquipeClinica;
+SELECT EC.nome, EC.salario
+FROM EquipeClinica EC;
 
 
 SELECT SUM(custosOperacionais) AS total_custos_operacionais
